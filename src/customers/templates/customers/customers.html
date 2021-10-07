@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock %}
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Account No</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Customer Name</th>
+            <th>Account details</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for account in account %}
+        <tr>
+            <td scope="row">{{ account.acc_no }}</td>
+            <td>{{ account.cust_id }}</td>
+            <td>{{ account.cust_name }}</td>
+            <td>
+                <a href="{% url 'account_details' account.acc_no%}">Details</a>
+                <a href="{% url 'transfer' account.acc_no%}">Transfer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

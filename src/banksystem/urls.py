@@ -1,4 +1,4 @@
-"""banksystem URL Configuration
+"""bankingsystem URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from customers import views as customer_view
+from accounts import views as account_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', customer_view.customer, name='customer'),
+    path('<int:pk>/', account_view.account_details, name='account_details'),
+    path('account/<int:pk>/', account_view.transfer, name='transfer'),
 ]
