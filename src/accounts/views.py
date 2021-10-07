@@ -26,3 +26,16 @@ def transfer(request, pk):
         'firstname': 'Rama Krishna'
     }
     return render(request, 'accounts/transfer.html', context)
+
+
+def send(request,id,rid):
+    for i in account:
+        if rid == i['acc_no']:
+            acc_detail = i
+
+    context = {
+        'account': account,
+        'acc': acc_detail,
+        'firstname': 'Rama Krishna'
+    }
+    return render(request,'accounts/send.html',context)

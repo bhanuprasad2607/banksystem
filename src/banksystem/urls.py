@@ -21,7 +21,8 @@ from accounts import views as account_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', customer_view.customer, name='customer'),
+    path('', customer_view.customers, name='customer'),
     path('<int:pk>/', account_view.account_details, name='account_details'),
     path('account/<int:pk>/', account_view.transfer, name='transfer'),
+    path('account/<int:id>/<int:rid>/', account_view.send, name='send'),
 ]

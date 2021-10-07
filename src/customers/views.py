@@ -43,4 +43,4 @@ account = [
 
 def customers(request):
     context = {'account': account}
-    return render(request, 'customers/customer.html', context)
+    return render(request, 'customers/customers.html', context)

@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'customers/base.html' %}
 {% block title %}{{acc.cust_name}}{% endblock %}
 {% block main %}
 <table class="table">
@@ -19,7 +19,7 @@
             <td>{{ account.cust_id }}</td>
             <td>{{ account.cust_name }}</td>
             <td>
-                <a href="">Send</a>
+                <a href="{% url 'send' acc.acc_no account.acc_no%}">Send</a>
                 <a href="">Transactions</a>
             </td>
         </tr>
