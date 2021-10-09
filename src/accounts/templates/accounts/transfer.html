@@ -1,5 +1,11 @@
 {% extends 'customers/base.html' %}
 {% block title %}{{acc.cust_name}}{% endblock %}
+{% block back %}
+<div class="display-4" style="text-align: left" title="goto Home">
+    <a href="{% url 'customer' %}" style="text-decoration: none;color:black;"><span class="sym-back">«</span><span
+            class="sym-back">«</span></a>
+</div>
+{% endblock %}
 {% block main %}
 <table class="table">
     <thead>
@@ -12,6 +18,7 @@
         </tr>
     </thead>
     <tbody>
+
         {% for account in account %}
         {% if account.acc_no != acc.acc_no %}
         <tr>

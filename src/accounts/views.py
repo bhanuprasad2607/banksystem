@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from customers.views import account
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -30,12 +31,18 @@ def transfer(request, pk):
 
 def send(request,id,rid):
     for i in account:
+        if id == i['acc_no']:
+            send_detail = i
         if rid == i['acc_no']:
-            acc_detail = i
+            recv_detail = i
+
+    if 'cancel' in request.POST:
+        return HttpResponseRedirect('transfer',args=(id,))
 
     context = {
         'account': account,
-        'acc': acc_detail,
+        'send': send_detail,
+        'recv': recv_detail,
         'firstname': 'Rama Krishna'
     }
     return render(request,'accounts/send.html',context)

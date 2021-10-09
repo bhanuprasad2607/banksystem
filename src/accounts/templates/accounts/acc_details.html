@@ -1,6 +1,12 @@
 {% extends 'customers/base.html' %}
 {% block title %}Account - {{ firstname }}{% endblock %}
 {% load humanize %}
+{% block back %}
+<div class="display-4" style="text-align: left" title="goto Home">
+    <a href="{% url 'customer' %}" style="text-decoration: none;color:black;"><span class="sym-back">«</span><span
+            class="sym-back">«</span></a>
+</div>
+{% endblock %}
 {% block main %}
 <h2>Account Details </h2>
 <div class="row mt-5 align-items-center">
