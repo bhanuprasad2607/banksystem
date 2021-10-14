@@ -1,17 +1,13 @@
 from django.shortcuts import render
-from customers.views import account
 from django.http import HttpResponseRedirect
-# Create your views here.
+from customers.models import CustomersModel
 
 
 def account_details(request, pk):
-    for i in account:
-        if pk == i['acc_no']:
-            acc_detail = i
-
+    customer = CustomersModel.objects.filter(id=pk).get()
+    print(customer)
     context = {
-        'acc': acc_detail,
-        'firstname': 'Rama Krishna'
+        'acc': customer,
     }
     return render(request, 'accounts/acc_details.html', context)
 
@@ -29,7 +25,7 @@ def transfer(request, pk):
     return render(request, 'accounts/transfer.html', context)
 
 
-def send(request,id,rid):
+def send(request, id, rid):
     for i in account:
         if id == i['acc_no']:
             send_detail = i
@@ -37,7 +33,7 @@ def send(request,id,rid):
             recv_detail = i
 
     if 'cancel' in request.POST:
-        return HttpResponseRedirect('transfer',args=(id,))
+        return HttpResponseRedirect('transfer', args=(id,))
 
     context = {
         'account': account,
@@ -45,4 +41,4 @@ def send(request,id,rid):
         'recv': recv_detail,
         'firstname': 'Rama Krishna'
     }
-    return render(request,'accounts/send.html',context)
+    return render(request, 'accounts/send.html', context)
