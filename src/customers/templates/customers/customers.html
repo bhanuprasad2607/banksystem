@@ -7,6 +7,7 @@
             <th scope="col">Account No</th>
             <th scope="col">Customer Id</th>
             <th scope="col">Customer Name</th>
+            <th scope="col">IFSC Code</th>
             <th>Account details</th>
 
         </tr>
@@ -15,8 +16,9 @@
         {% for customer in customers %}
         <tr>
             <td scope="row">{{ customer.acc_number }}</td>
-            <td>{{ customer.cust_name }}</td>
             <td>{{ customer.email }}</td>
+            <td>{{ customer.cust_name }}</td>
+            <td>{{ customer.ifsc_code}}</td>
             <td>
                 <a href="{% url 'account_details' customer.id%}">Details</a>
                 <a href="{% url 'transfer' customer.id%}">Transfer</a>

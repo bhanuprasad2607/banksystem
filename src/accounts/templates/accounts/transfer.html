@@ -19,13 +19,13 @@
     <tbody>
 
         {% for account in account %}
-        {% if account.acc_no != acc.acc_no %}
+        {% if account.acc_number != acc.acc_number %}
         <tr>
-            <td scope="row">{{ account.acc_no }}</td>
-            <td>{{ account.cust_id }}</td>
+            <td scope="row">{{ account.acc_number }}</td>
+            <td>{{ account.email }}</td>
             <td>{{ account.cust_name }}</td>
             <td>
-                <a href="{% url 'send' acc.acc_no account.acc_no%}">Send</a>
+                <a href="{% url 'send' acc.id account.id%}">Send</a>
                 <a href="">Transactions</a>
             </td>
         </tr>

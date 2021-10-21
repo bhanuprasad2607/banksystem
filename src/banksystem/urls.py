@@ -24,5 +24,5 @@ urlpatterns = [
     path('', customer_view.customers, name='customer'),
     path('<uuid:pk>/', account_view.account_details, name='account_details'),
     path('account/<uuid:pk>/', account_view.transfer, name='transfer'),
-    path('account/<int:id>/<int:rid>/', account_view.send, name='send'),
+    path('account/<uuid:id>/<uuid:rid>/', account_view.send, name='send'),
 ]

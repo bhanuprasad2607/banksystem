@@ -13,7 +13,7 @@
         <div class="p-2 bd-highlight">Account No&nbsp;:&nbsp;<span class="display-6">{{acc.acc_number}}</span></div>
     </div>
     <div class="col">
-        <div class="p-2 me-auto bd-highlight">Customer Id&nbsp;:&nbsp;<span class="display-6">{{acc.email}}</span>
+        <div class="p-2 me-auto bd-highlight">Customer mail&nbsp;:&nbsp;<span class="display-6">{{acc.email}}</span>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
 <div class="container">
     <div class="row justify-content-start">
         <div class="col-md-9 ms-auto mt-4">
-            <div class="p-2 ">Balance&nbsp;:&nbsp;<span class="display-6">&#8377;&nbsp;{{ acc.balance|intcomma}}</span>
+            <div class="p-2 ">Balance&nbsp;:&nbsp;<span class="display-6">&#8377;&nbsp;{{acc.total_amt|intcomma}}</span>
             </div>
         </div>
     </div>

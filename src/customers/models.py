@@ -9,3 +9,4 @@ class CustomersModel(models.Model):
     cust_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
     ifsc_code = models.CharField(max_length=10)
+    total_amt = models.BigIntegerField(default=100)
