@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cvjjtp8wb04!c4=fh0#=3y+wj2$_c$l&h6mlz=_y6fe%&a&z(g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://people-bank.herokuapp.com/', '127.0.0.1']
 
