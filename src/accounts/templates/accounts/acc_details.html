@@ -35,6 +35,45 @@
         </div>
     </div>
 </div>
+<br><br>
+<!-- Transactions made by the current customer account -->
+<div>
+    <span style="background-color:green;">&nbsp;</span>&nbsp;Recevied amount<br>
+    <span style="background-color:red;">&nbsp;</span>&nbsp;Send amount<br>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Account No</th>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <!-- sender or recevier account numbers  -->
+            <td scope="row">
+                {% if acc.acc_number != transaction.send_account %}
+                <span style="background-color: green; color:white; padding:4px;">{{transaction.send_account}}</span>
+                {% elif acc.acc_number != transaction.recv_account %}
+                <span style="background-color: red; color:white; padding:4px;">{{ transaction.recv_account }}</span>
+                {% endif%}
+            </td>
+            <td>{{transaction.transaction_id}}</td>
+            <td></td>
+            <td>{{ transaction.trans_date_time | date:"D, d M, Y" }}</td>
+            <td>{{ transaction.trans_date_time | time:"H:i"}}</td>
+            <td>&#8377;&nbsp;{{transaction.trans_amt|intcomma}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock %}

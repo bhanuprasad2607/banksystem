@@ -2,13 +2,18 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from customers.models import CustomersModel
 from django.contrib import messages
+from .models import Transactions
+from django.db.models import Q
 
 
 def account_details(request, pk):
     customer = CustomersModel.objects.filter(id=pk).get()
-    print(customer)
+    transactions = Transactions.objects.filter(
+        Q(send_account=customer.acc_number) | Q(recv_account=customer.acc_number))
+    print(transactions)
     context = {
         'acc': customer,
+        'transactions':transactions
     }
     return render(request, 'accounts/acc_details.html', context)
 
@@ -39,6 +44,7 @@ def send(request, id, rid):
                 id=id).update(total_amt=send_amt)
             recv_customer_amt = CustomersModel.objects.filter(
                 id=rid).update(total_amt=recv_amt)
+            transaction(customer, recv_customer, request_amt)
 
         # Passing Error messages for the below cases
         # Amount exceeded for sender total amount
@@ -56,3 +62,13 @@ def send(request, id, rid):
         'recv': recv_customer,
     }
     return render(request, 'accounts/send.html', context)
+
+
+def transaction(customer, recv_customer, request_amt):
+    transaction = Transactions(send_account=customer.acc_number,
+                               recv_account=recv_customer.acc_number, trans_amt=request_amt)
+    transaction.save()
+
+
+def transactions(request, id):
+    pass

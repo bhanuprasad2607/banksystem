@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from django.core.validators import MaxValueValidator
 
 
 class CustomersModel(models.Model):
