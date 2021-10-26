@@ -58,15 +58,22 @@
         {% for transaction in transactions %}
         <tr>
             <!-- sender or recevier account numbers  -->
-            <td scope="row">
-                {% if acc.acc_number != transaction.send_account %}
-                <span style="background-color: green; color:white; padding:4px;">{{transaction.send_account}}</span>
-                {% elif acc.acc_number != transaction.recv_account %}
-                <span style="background-color: red; color:white; padding:4px;">{{ transaction.recv_account }}</span>
+            <td scope="col">
+                {% if acc.acc_number != transaction.send_account.acc_number %}
+                <span
+                    style="background-color: green; color:white; padding:4px;">{{transaction.send_account.acc_number}}</span>
+                {% elif acc.acc_number != transaction.recv_account.acc_number %}
+                <span
+                    style="background-color: red; color:white; padding:4px;">{{transaction.recv_account.acc_number}}</span>
                 {% endif%}
             </td>
             <td>{{transaction.transaction_id}}</td>
-            <td></td>
+            <td>{% if acc.acc_number != transaction.send_account.acc_number %}
+                <span>{{transaction.send_account.cust_name}}</span>
+                {% elif acc.acc_number != transaction.recv_account.acc_number %}
+                <span>{{transaction.recv_account.cust_name}}</span>
+                {% endif%}
+            </td>
             <td>{{ transaction.trans_date_time | date:"D, d M, Y" }}</td>
             <td>{{ transaction.trans_date_time | time:"H:i"}}</td>
             <td>&#8377;&nbsp;{{transaction.trans_amt|intcomma}}</td>
