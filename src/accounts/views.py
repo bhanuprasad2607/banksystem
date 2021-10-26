@@ -69,22 +69,24 @@ def transfer(request, pk):
 
 def send(request, id, rid):
     customer = CustomersModel.objects.filter(id=id).get()
-    print(customer.total_amt)
     recv_customer = CustomersModel.objects.filter(id=rid).get()
-    print(request.POST)
     if 'send' in request.POST:
-        request_amt = int(request.POST.get('amount'))
-        if request_amt <= customer.total_amt:
-            print('hello world')
-            transaction = Transactions(
-                send_account=customer, recv_account=recv_customer, trans_amt=request_amt)
-            transaction.save()
-            # Passing Error messages for the below cases
-        # Amount exceeded for sender total amount
-        # Cancellation of Transaction by customer
+        request_amt = request.POST.get('amount')
+        if request_amt != "":
+            request_amt = float(request_amt)
+            if request_amt <= customer.total_amt:
+                transaction = Transactions(
+                    send_account=customer, recv_account=recv_customer, trans_amt=request_amt)
+                transaction.save()
+                # Passing Error messages for the below cases
+            # Amount exceeded for sender total amount
+            # Cancellation of Transaction by customer
+            else:
+                messages.warning(
+                    request, 'Insufficient Balance, Please Check and try again.')
+                return HttpResponseRedirect(request.path_info)
         else:
-            messages.warning(
-                request, 'Insufficient Balance, Please Check and try again.')
+            messages.warning(request, 'Please enter a valid Input')
             return HttpResponseRedirect(request.path_info)
 
     if 'cancel' in request.POST:
