@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from customers.models import CustomersModel
 from django.contrib import messages
@@ -71,8 +71,11 @@ def transfer(request, pk):
 
 def send(request, id, rid):
     customer = CustomersModel.objects.filter(id=id).get()
+    print(customer.total_amt)
     recv_customer = CustomersModel.objects.filter(id=rid).get()
+    print(request.POST)
     if 'send' in request.POST:
+
         request_amt = request.POST.get('amount')
         if request_amt != "":
             request_amt = float(request_amt)
@@ -82,9 +85,8 @@ def send(request, id, rid):
                 transaction.save()
                 messages.success(
                     request, "Successfully transfered the amount,To go to customers click cancel")
-
                 return HttpResponseRedirect(request.path_info)
-            # Passing Error messages for the below cases
+                # Passing Error messages for the below cases
             # Amount exceeded for sender total amount
             # Cancellation of Transaction by customer
             else:
