@@ -78,7 +78,11 @@ def send(request, id, rid):
                 transaction = Transactions(
                     send_account=customer, recv_account=recv_customer, trans_amt=request_amt)
                 transaction.save()
-                # Passing Error messages for the below cases
+                messages.success(
+                    request, "Successfully transfered the amount,To go to customers click cancel")
+
+                return HttpResponseRedirect(request.path_info)
+            # Passing Error messages for the below cases
             # Amount exceeded for sender total amount
             # Cancellation of Transaction by customer
             else:
