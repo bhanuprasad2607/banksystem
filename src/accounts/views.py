@@ -3,11 +3,13 @@ from django.http import HttpResponseRedirect
 from customers.models import CustomersModel
 from django.contrib import messages
 from .models import Transactions
+from django.db.models import Q
 
 
 def account_details(request, pk):
     customer = CustomersModel.objects.filter(id=pk).get()
-    transactions = Transactions.objects.all()
+    transactions = Transactions.objects.filter(
+        Q(send_account=customer) | Q(recv_account=customer))
 
     context = {
         'acc': customer,
