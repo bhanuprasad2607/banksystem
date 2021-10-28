@@ -15,7 +15,10 @@
   python manage.py runserver  # The command is for Linux Platforms
   </pre>
 </li>
-
+<li>You can go through this for live actions of project</li>
+<pre>
+     <a href="http://bhanuprasad1999.pythonanywhere.com/">People Bank</a>
+</pre>
 <li> Below are the Samples of Project How to View</li>
 <pre> - This is the Home Page or Accounts for the Customers
     <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_2.png" alt="screenshot-1"/><br>
