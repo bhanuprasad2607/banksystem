@@ -7,5 +7,7 @@
 <li>Then set DEBUG = True in settings.py in <a href="https://github.com/bhanuprasad2607/banksystem/blob/main/src/banksystem/settings.py">banksystem</a></li>
 <pre>     DEBUG = True </pre>
 <li>To run the Project
+  <ul>
   <li> Open the command propmt or Terminal and set the Path to <a href="https://github.com/bhanuprasad2607/banksystem/tree/main/src">manage.py</a> file location.</li>
-  </li>
+  </ul>
+</li>
