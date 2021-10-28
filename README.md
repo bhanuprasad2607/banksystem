@@ -6,8 +6,8 @@
 <pre>     pip install -r requirements.txt</pre>
 <li>Then set DEBUG = True in settings.py in <a href="https://github.com/bhanuprasad2607/banksystem/blob/main/src/banksystem/settings.py">banksystem</a></li>
 <pre>     DEBUG = True </pre>
-<li>To run the Project
-  * Open the command propmt or Terminal and set the Path to <a href="https://github.com/bhanuprasad2607/banksystem/tree/main/src">manage.py</a> file location.
+<li>To run the Project<br>
+  * Open the command propmt or Terminal and set the Path to <a href="https://github.com/bhanuprasad2607/banksystem/tree/main/src">manage.py</a> file location.<br>
   * Run the Command below provided
   <pre>     
   py manage.py runserver # The command is for windows Platform
