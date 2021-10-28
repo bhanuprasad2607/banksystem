@@ -17,7 +17,18 @@
 </li>
 
 <li> Below are the Samples of Project How to View</li>
-- This is the Home Page or Accounts for the Customers
-<img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_2.png" alt="hello world"/>
-- This is the Account Details of Individual Person in Presented Customers list in Home Page.
-<img src="![image](https://user-images.githubusercontent.com/85786668/139172565-281c123e-80b5-4b4b-9923-e32815077662.png)"/>
+<pre> - This is the Home Page or Accounts for the Customers
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_2.png" alt="screenshot-1"/><br>
+ - This is the Account Details of Individual Person in Presented Customers list in Home Page.
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_1.png"/><br>
+ - This is the Page for tranfering amount to another customer by clicking send button.
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_3.png"/><br>
+ - This is the Page for how much money do you want to send.
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_4.png"/>
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_5.png"/>
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_6.png"/>
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_7.png" /><br>
+ - The amount transfered details can be seen in account Details.
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_8.png" />
+    <img src="https://github.com/bhanuprasad2607/banksystem/blob/main/Screenshot_9.png" />
+</pre>
