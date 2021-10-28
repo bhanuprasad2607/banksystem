@@ -8,6 +8,6 @@
 <pre>     DEBUG = True </pre>
 <li>To run the Project
   <ul>
-  <li> Open the command propmt or Terminal and set the Path to <a href="https://github.com/bhanuprasad2607/banksystem/tree/main/src">manage.py</a> file location.</li>
+  * Open the command propmt or Terminal and set the Path to <a href="https://github.com/bhanuprasad2607/banksystem/tree/main/src">manage.py</a> file location.
   </ul>
 </li>
